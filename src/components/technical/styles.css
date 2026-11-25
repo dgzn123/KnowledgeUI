@@ -1,0 +1,136 @@
+.kui-technical .kui-technical-title {
+  margin: 0 0 var(--kui-space-sm);
+  font-weight: 650;
+}
+
+.kui-technical pre.kui-technical-scroll {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  margin: 0;
+  padding: var(--kui-space-sm) 0;
+  overflow-x: auto;
+  border-block: 1px solid var(--kui-line);
+  border-radius: 0;
+  background: var(--code-background, var(--background-secondary, transparent));
+  color: var(--code-normal, var(--kui-fg));
+  font-family: var(--font-monospace, ui-monospace, monospace);
+  font-size: 0.875em;
+  line-height: 1.55;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  tab-size: 4;
+}
+
+.kui-technical .kui-technical-scroll > :is(.kui-code-source, .kui-terminal-transcript) {
+  display: block;
+  box-sizing: border-box;
+  inline-size: max-content;
+  min-inline-size: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: inherit;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.kui-code .kui-code-line {
+  display: inline-block;
+  box-sizing: border-box;
+  min-inline-size: 100%;
+  min-block-size: 1.55em;
+  padding-inline: var(--kui-space-md);
+  vertical-align: top;
+}
+
+.kui-code .kui-code-line[data-highlighted] {
+  box-shadow: inset 3px 0 var(--kui-info);
+  background: var(--background-modifier-hover, color-mix(in srgb, var(--kui-info) 12%, transparent));
+}
+
+.kui-code .kui-code-number {
+  display: inline-block;
+  min-inline-size: var(--kui-line-digits, 1ch);
+  margin-inline-end: var(--kui-space-md);
+  color: var(--kui-muted);
+  text-align: end;
+  user-select: none;
+}
+
+.kui-code .kui-code-number::before { content: attr(data-line); }
+
+.kui-code .kui-code-syntax-status {
+  margin: var(--kui-space-xs) 0 0;
+  color: var(--kui-muted);
+  font-size: 0.875em;
+}
+
+.kui-code .kui-code-annotations {
+  margin: var(--kui-space-sm) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--kui-muted);
+  font-size: 0.875em;
+}
+
+.kui-code .kui-code-annotation-line {
+  margin-inline-end: var(--kui-space-sm);
+  font-weight: 650;
+}
+
+.kui-code .kui-code-annotation-text { white-space: pre-wrap; }
+
+.kui-terminal .kui-technical-scroll > .kui-terminal-transcript { padding-inline: var(--kui-space-md); }
+.kui-terminal .kui-terminal-prompt { color: var(--kui-muted); }
+.kui-terminal .kui-terminal-line[data-kind="command"] { font-weight: 650; }
+.kui-terminal .kui-terminal-line[data-kind="error"] {
+  color: var(--kui-danger);
+  font-weight: 650;
+}
+
+.kui-file-tree .kui-file-tree-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kui-file-tree .kui-file-tree-list .kui-file-tree-list {
+  margin-inline-start: min(var(--kui-space-sm), 2%);
+  padding-inline-start: min(var(--kui-space-sm), 2%);
+  border-inline-start: 1px solid var(--kui-line);
+}
+
+.kui-file-tree .kui-file-tree-entry { margin: 0; }
+
+.kui-file-tree .kui-file-tree-summary,
+.kui-file-tree .kui-file-tree-file {
+  box-sizing: border-box;
+  padding: var(--kui-space-sm);
+  overflow-wrap: anywhere;
+  font-family: var(--font-monospace, ui-monospace, monospace);
+  font-size: 0.875em;
+}
+
+.kui-file-tree .kui-file-tree-summary {
+  display: list-item;
+  min-block-size: 44px;
+  padding-inline-start: calc(var(--kui-space-sm) + 1em);
+  list-style-position: inside;
+  text-indent: -1em;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.kui-file-tree .kui-file-tree-summary::marker { color: var(--kui-muted); }
+.kui-file-tree .kui-file-tree-summary:hover { background: var(--background-modifier-hover, transparent); }
+
+.kui-file-tree .kui-file-tree-detail {
+  margin-inline-start: var(--kui-space-sm);
+  color: var(--kui-muted);
+  font-family: var(--font-text, system-ui, sans-serif);
+  white-space: pre-wrap;
+}

@@ -1,0 +1,9 @@
+{
+  "id": "knowledge-ui",
+  "name": "Knowledge UI",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Render declarative learning notes, layouts, and knowledge components.",
+  "author": "Knowledge UI",
+  "isDesktopOnly": false
+}

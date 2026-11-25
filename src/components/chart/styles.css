@@ -1,0 +1,154 @@
+.kui-chart {
+  color: var(--kui-fg);
+}
+
+.kui-chart [hidden] { display: none; }
+
+.kui-chart-title {
+  margin-block-end: var(--kui-space-sm);
+  font-size: 1.125rem;
+  font-weight: 650;
+}
+
+.kui-chart-axis-label {
+  color: var(--kui-muted);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+
+.kui-chart-axis-x { text-align: end; }
+
+.kui-chart-surface {
+  position: relative;
+  inline-size: 100%;
+  block-size: 244px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.kui-chart-svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.kui-chart-grid line {
+  stroke: var(--kui-line);
+  shape-rendering: crispEdges;
+}
+
+.kui-chart-grid text {
+  fill: var(--kui-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kui-chart [data-tone="info"] { --kui-chart-color: var(--kui-info); }
+.kui-chart [data-tone="success"] { --kui-chart-color: var(--kui-success); }
+.kui-chart [data-tone="warning"] { --kui-chart-color: var(--kui-warning); }
+.kui-chart [data-tone="danger"] { --kui-chart-color: var(--kui-danger); }
+
+.kui-chart-shape {
+  fill: none;
+  stroke: var(--kui-chart-color, var(--kui-fg));
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kui-chart-series[data-type="scatter"] .kui-chart-shape { stroke-width: 5; }
+
+.kui-chart-series[data-type="bar"] .kui-chart-shape {
+  fill: var(--kui-chart-color, var(--kui-fg));
+  stroke: none;
+}
+
+.kui-chart-area,
+.kui-chart-region {
+  fill: var(--kui-chart-color, var(--kui-fg));
+  fill-opacity: 0.13;
+}
+
+.kui-chart-reference {
+  stroke: var(--kui-chart-color, var(--kui-muted));
+  stroke-dasharray: 4 4;
+}
+
+.kui-chart-marker,
+.kui-chart-cursor {
+  fill: var(--background-primary, Canvas);
+  stroke: var(--kui-chart-color, var(--kui-focus));
+  stroke-width: 2;
+}
+
+.kui-chart-cursor { pointer-events: none; }
+
+.kui-chart .kui-chart-keys {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  gap: var(--kui-space-xs) var(--kui-space-md);
+  list-style: none;
+  color: var(--kui-muted);
+  font-size: 0.8125rem;
+}
+
+.kui-chart-key {
+  display: flex;
+  align-items: baseline;
+  gap: var(--kui-space-xs);
+  min-inline-size: 0;
+  margin: 0;
+}
+
+.kui-chart-key-label { min-inline-size: 0; }
+
+.kui-chart-swatch {
+  flex: 0 0 auto;
+  inline-size: 0.9rem;
+  block-size: 0.375rem;
+  color: var(--kui-chart-color, var(--kui-fg));
+  border-block-start: 2px solid currentColor;
+  box-sizing: border-box;
+}
+
+.kui-chart-key[data-type="reference"] .kui-chart-swatch { border-block-start-style: dashed; }
+
+.kui-chart-key[data-type="marker"] .kui-chart-swatch {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border: 2px solid var(--kui-focus);
+  border-radius: 50%;
+}
+
+.kui-chart-key[data-type="scatter"] .kui-chart-swatch {
+  inline-size: 0.375rem;
+  border: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.kui-chart-key[data-type="bar"] .kui-chart-swatch,
+.kui-chart-key[data-type="region"] .kui-chart-swatch {
+  border: 0;
+  background: currentColor;
+}
+
+.kui-chart-key[data-type="region"] .kui-chart-swatch { opacity: 0.3; }
+
+.kui-chart-readout {
+  min-block-size: 1.5em;
+  margin-block: var(--kui-space-xs);
+  color: var(--kui-fg);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.kui-chart-hint {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

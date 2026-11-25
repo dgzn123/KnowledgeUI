@@ -1,0 +1,27 @@
+version: 1
+type: interactive
+state:
+  step: {type: number, default: 0, min: 0, max: 5, step: 1}
+data:
+  steps:
+    - [1, {from: 2, to: 3}]
+    - [2, {from: 3, to: 4}]
+    - "2"
+    - [2, {from: 3, to: 999}]
+    - [{from: 3, to: 2}]
+    - [4]
+layout:
+  type: stack
+  children:
+    - type: code
+      title: "Step {{step}}"
+      ariaLabel: Sample listing
+      language: example
+      lineNumbers: true
+      code: "/* Start\r\n   <strong>literal</strong>\r*/\n\tThis is a narrow layout test. This long line should scroll inside the code region, and the rest of the page should stay in place.\n"
+      highlight: "{{steps[step]}}"
+      annotations:
+        - {line: 2, text: "Step {{step}} <sample>"}
+    - type: stepper
+      bind: step
+      labels: [First, Second, Type, Boundary, Order, Last]

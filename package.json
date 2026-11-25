@@ -1,0 +1,39 @@
+{
+  "name": "knowledge-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.3 <25",
+    "npm": ">=11 <12"
+  },
+  "packageManager": "npm@11.19.1",
+  "imports": {
+    "#contracts": "./src/contracts/index.ts",
+    "#protocol-schema": "./src/contracts/schema/index.ts"
+  },
+  "scripts": {
+    "dev": "node scripts/build-product.mjs --watch",
+    "check": "tsc --noEmit && tsc -p tsconfig.node.json && node skills/knowledge-ui/scripts/component-reference.mjs --check",
+    "test": "node --test",
+    "build": "npm run build:contracts && node scripts/build-product.mjs",
+    "build:contracts": "tsc -p tsconfig.build.json && node scripts/build-contracts.mjs",
+    "validate": "node cli/main.ts",
+    "preview": "node scripts/preview.mjs",
+    "deploy": "node scripts/deploy/index.mjs",
+    "rollback": "node scripts/rollback/index.mjs"
+  },
+  "dependencies": {
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "obsidian": "1.14.4",
+    "typescript": "6.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

@@ -1,0 +1,38 @@
+version: 1
+type: interactive
+title: 阻尼比对二阶系统阶跃响应的影响
+state:
+  zeta: { type: number, label: 阻尼比 ζ, default: 0.5, min: 0.1, max: 2.0, step: 0.1 }
+  wn:   { type: number, label: 自然频率 ω_n, default: 2.0, min: 0.5, max: 5.0, step: 0.5, unit: rad/s }
+computed:
+  regime: "zeta < 1 ? 'underdamped' : (zeta == 1 ? 'critical' : 'overdamped')"
+  overshoot: "zeta < 1 ? exp(-PI * zeta / sqrt(1 - zeta * zeta)) * 100 : 0"
+layout:
+  type: grid
+  columns: { desktop: 2, mobile: 1 }
+  children:
+    - type: stack
+      direction: column
+      children:
+        - type: slider
+          bind: zeta
+        - type: slider
+          bind: wn
+        - type: metric
+          label: 超调量 M_p
+          value: "{{round(overshoot, 1)}}"
+          unit: "%"
+          tone: "{{zeta < 0.4 ? 'warning' : 'success'}}"
+        - type: callout
+          when: "regime == 'underdamped'"
+          tone: info
+          title: 欠阻尼状态
+          body: "系统会产生衰减振荡，减小 ζ 将增大超调量。"
+    - type: chart
+      title: 单位阶跃响应 y(t)
+      xAxis: { label: 时间 t, unit: s, min: 0, max: 10 }
+      yAxis: { label: 响应 y(t), min: 0, max: 2 }
+      series:
+        - type: function
+          label: y(t)
+          expr: "..." # 不可运行的语法示意。实际表达式可引用当前 state 与自变量 x

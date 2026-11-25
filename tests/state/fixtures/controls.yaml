@@ -1,0 +1,49 @@
+version: 1
+type: interactive
+title: "Items {{amount}}"
+state:
+  amount: { type: number, min: 0, max: 2, step: 1, default: 0, label: Quantity, unit: items }
+  shown: { type: boolean, default: false }
+  mode: { type: string, default: A }
+  step: { type: number, min: 0, max: 2, step: 1, default: 0 }
+data:
+  rows:
+    - { name: First, shown: true }
+    - { name: Second, shown: false }
+computed:
+  total: "amount * 2"
+layout:
+  type: stack
+  children:
+    - { type: slider, bind: amount }
+    - { type: number-input, bind: amount, label: Entry }
+    - type: select
+      bind: mode
+      options:
+        - { label: First, value: A }
+        - { label: "Second {{total}}", value: B }
+    - { type: toggle, bind: shown, label: Details }
+    - { type: button, label: Add, action: { type: increment, bind: amount, by: 1 } }
+    - { type: metric, label: Total, value: "{{total}}" }
+    - { type: text, body: 'Mode {{mode}} \{{draft}} {{"end }}"}}' }
+    - type: text
+      repeat: { items: rows, as: row, index: i }
+      when: row.shown
+      body: "Row {{i}} · {{row.name}}"
+    - { type: text, when: shown, body: "Visible {{total}}" }
+    - type: interactive
+      when: shown
+      title: "Nested {{amount}}"
+      state:
+        amount: { type: number, default: 10 }
+      layout: { type: number-input, bind: amount }
+    - type: stepper
+      bind: step
+      labels: [Ready, Working, Done]
+      intervalMs: 200
+    - type: quiz
+      question: "Choose {{amount}}"
+      options:
+        - { label: First, correct: false, explanation: "Try the other option." }
+        - { label: Second, correct: true, explanation: "Chosen {{total}}" }
+      explanation: "End of exercise."

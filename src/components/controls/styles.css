@@ -1,0 +1,115 @@
+.kui-control {
+  --kui-control-surface: var(--background-primary, transparent);
+  --kui-control-active: var(--interactive-accent, var(--kui-info));
+}
+
+.kui-interactive {
+  display: grid;
+  gap: var(--kui-space-md);
+}
+
+.kui-interactive .kui-interactive-title {
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.35;
+}
+
+.kui-control:is(.kui-slider, .kui-number-input, .kui-select, .kui-toggle) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kui-space-sm);
+  align-items: center;
+}
+
+.kui-control .kui-control-label {
+  font-weight: 600;
+}
+
+.kui-control :is(.kui-control-reading, .kui-control-unit, .kui-stepper-reading) {
+  color: var(--kui-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.kui-control .kui-control-input,
+.kui-quiz .kui-quiz-option input {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  min-block-size: 2.75rem;
+  accent-color: var(--kui-control-active);
+  font: inherit;
+}
+
+.kui-slider .kui-control-input {
+  flex: 1 1 9rem;
+}
+
+.kui-number-input .kui-control-input {
+  inline-size: 9rem;
+}
+
+.kui-control :is(input[type="number"], select).kui-control-input,
+.kui-control.kui-button,
+.kui-stepper .kui-stepper-action {
+  min-block-size: 2.75rem;
+  padding-inline: 0.75em;
+  border: 1px solid var(--kui-line);
+  border-radius: 0.25rem;
+  color: var(--kui-fg);
+  background: var(--kui-control-surface);
+  font: inherit;
+}
+
+.kui-control.kui-button[data-tone="info"] {
+  border-color: var(--kui-info);
+  color: var(--kui-info);
+}
+
+.kui-control.kui-button:focus-visible {
+  outline: 2px solid var(--kui-focus);
+  outline-offset: 1px;
+}
+
+.kui-control .kui-control-input[aria-invalid="true"] {
+  border-color: var(--kui-danger);
+}
+
+.kui-stepper .kui-stepper-reading {
+  margin: var(--kui-space-xs) 0 var(--kui-space-sm);
+}
+
+.kui-stepper .kui-stepper-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kui-space-sm);
+}
+
+.kui-stepper .kui-stepper-action[aria-disabled="true"] {
+  opacity: 0.55;
+}
+
+.kui-quiz {
+  padding: 0;
+  border: 0;
+}
+
+.kui-quiz .kui-quiz-question {
+  max-inline-size: 100%;
+  padding: 0;
+  font-weight: 600;
+}
+
+.kui-quiz .kui-quiz-options {
+  display: grid;
+  justify-items: start;
+}
+
+.kui-quiz .kui-quiz-option {
+  display: inline-flex;
+  gap: var(--kui-space-sm);
+  align-items: center;
+  min-block-size: 2.75rem;
+}
+
+.kui-quiz .kui-quiz-feedback[data-correct="true"] > strong { color: var(--kui-success); }
+.kui-quiz .kui-quiz-feedback[data-correct="false"] > strong { color: var(--kui-danger); }

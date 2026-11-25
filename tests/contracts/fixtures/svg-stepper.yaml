@@ -1,0 +1,26 @@
+version: 1
+type: interactive
+title: fork() 前后文件描述符表变化
+state:
+  step: { type: number, default: 0, min: 0, max: 2, step: 1 }
+data:
+  steps:
+    - { title: "1. fork() 前", desc: "父进程打开文件，FD 3 指向内核文件表项 A。", showChild: false, refCount: 1 }
+    - { title: "2. 调用 fork()", desc: "子进程复制父进程 FD 表，共享同一内核文件表项。", showChild: true, refCount: 2 }
+    - { title: "3. 移动偏移量", desc: "父进程 read() 更新共享文件偏移量，子进程同步可见。", showChild: true, refCount: 2 }
+layout:
+  type: stack
+  direction: column
+  children:
+    - type: stepper
+      bind: step
+      labels: ["fork() 前", "调用 fork()", "共享偏移量"]
+    - type: svg
+      viewBox: "0 0 640 220"
+      elements:
+        - { kind: rect, x: 24, y: 30, width: 160, height: 64, rx: 6, stroke: info }
+        - { kind: text, x: 104, y: 66, align: middle, text: "父进程 FD[3]" }
+        - { kind: rect, when: "step >= 1", x: 24, y: 126, width: 160, height: 64, rx: 6, stroke: success }
+        - { kind: text, when: "step >= 1", x: 104, y: 162, align: middle, text: "子进程 FD[3]" }
+        - { kind: rect, x: 360, y: 78, width: 230, height: 64, rx: 6, stroke: neutral }
+        - { kind: text, x: 475, y: 114, align: middle, text: "内核文件表 (ref={{step >= 1 ? 2 : 1}})" }

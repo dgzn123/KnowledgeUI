@@ -1,0 +1,75 @@
+.kui-sequence {
+  inline-size: 100%;
+}
+
+.kui-sequence .kui-sequence-title {
+  margin-block-end: 0.5rem;
+  font-weight: 650;
+}
+
+.kui-sequence .kui-sequence-scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+}
+
+.kui-sequence .kui-sequence-drawing {
+  display: block;
+  max-inline-size: none;
+  block-size: auto;
+  font-size: 14px;
+}
+
+.kui-sequence-lifeline {
+  stroke: var(--kui-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 5;
+}
+
+.kui-sequence-participant rect {
+  fill: var(--background-primary, white);
+  stroke: var(--kui-line);
+}
+
+.kui-sequence-participant text {
+  fill: var(--kui-fg);
+  font-weight: 650;
+}
+
+.kui-sequence-message {
+  color: var(--kui-fg);
+}
+
+.kui-sequence-message path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.kui-sequence-message text {
+  fill: currentColor;
+  paint-order: stroke;
+  stroke: var(--background-primary, white);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.kui-sequence-highlight {
+  fill: none;
+}
+
+.kui-sequence-message[aria-current="step"] .kui-sequence-highlight {
+  fill: var(--background-secondary, #f0f2f4);
+  fill: color-mix(in srgb, var(--kui-info) 10%, transparent);
+  stroke: var(--kui-info);
+  stroke-width: 1;
+}
+
+.kui-sequence-message[aria-current="step"] path {
+  stroke-width: 2.25;
+}
+
+.kui-sequence-message[aria-current="step"] text {
+  font-weight: 650;
+}

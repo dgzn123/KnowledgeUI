@@ -1,0 +1,12 @@
+version: 1
+type: interactive
+data:
+  rows: [{ show: true }, { show: false }]
+layout:
+  type: interactive
+  repeat: { items: rows, as: item }
+  when: item.show
+  title: "Own {{item}}"
+  state:
+    item: { type: number, default: 7 }
+  layout: { type: number-input, bind: item }

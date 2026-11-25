@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge UI 基础组件测试</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      --background-primary: #fff;
+      --background-modifier-border: #d1d7dd;
+      --text-normal: #222830;
+      --text-muted: #59636d;
+      --text-accent: #1358a0;
+      background: var(--background-primary);
+      color: var(--text-normal);
+      margin: 24px;
+      font: 16px/1.6 system-ui, sans-serif;
+    }
+    body.theme-dark {
+      --background-primary: #1e2228;
+      --background-modifier-border: #4a515b;
+      --text-normal: #e1e6eb;
+      --text-muted: #aab4c0;
+      --text-accent: #99c7ff;
+      color-scheme: dark;
+    }
+    main { max-inline-size: 100%; }
+    main h1 { font-size: 1.5rem; }
+    #blocks { display: grid; gap: 2rem; }
+  </style>
+  <script src="browser.js" defer></script>
+</head>
+<body class="theme-light">
+  <main id="gallery">
+    <h1>基础组件 Gallery</h1>
+    <p>一份可复核的记录应交代结论、依据和适用范围。</p>
+    <div id="blocks"></div>
+  </main>
+  <div id="sandbox"></div>
+</body>
+</html>

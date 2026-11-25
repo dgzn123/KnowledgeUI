@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.cache/
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+knowledge-ui.local.json
+backups/
+.obsidian/
+.DS_Store
