@@ -60,8 +60,8 @@
 }
 
 .kui-sequence-message[aria-current="step"] .kui-sequence-highlight {
-  fill: var(--background-secondary, #f0f2f4);
-  fill: color-mix(in srgb, var(--kui-info) 10%, transparent);
+  fill: var(--kui-info);
+  fill-opacity: 0.1;
   stroke: var(--kui-info);
   stroke-width: 1;
 }

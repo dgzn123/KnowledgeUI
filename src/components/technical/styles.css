@@ -14,7 +14,7 @@
   border-radius: 0;
   background: var(--code-background, var(--background-secondary, transparent));
   color: var(--code-normal, var(--kui-fg));
-  font-family: var(--font-monospace, ui-monospace, monospace);
+  font-family: var(--font-monospace, monospace);
   font-size: 0.875em;
   line-height: 1.55;
   white-space: pre;
@@ -111,16 +111,15 @@
   box-sizing: border-box;
   padding: var(--kui-space-sm);
   overflow-wrap: anywhere;
-  font-family: var(--font-monospace, ui-monospace, monospace);
+  font-family: var(--font-monospace, monospace);
   font-size: 0.875em;
 }
 
 .kui-file-tree .kui-file-tree-summary {
   display: list-item;
   min-block-size: 44px;
-  padding-inline-start: calc(var(--kui-space-sm) + 1em);
-  list-style-position: inside;
-  text-indent: -1em;
+  margin-inline-start: 1em;
+  list-style-position: outside;
   cursor: pointer;
   font-weight: 650;
 }

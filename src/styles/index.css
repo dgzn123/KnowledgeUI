@@ -115,7 +115,7 @@
 .kui-markdown-content > :last-child { margin-block-end: 0; }
 .kui-markdown-content :where(img, video, canvas, svg) { max-inline-size: 100%; }
 .kui-markdown-content :where(img, video, canvas) { block-size: auto; }
-.kui-markdown-content :where(pre, .math-block, mjx-container[display="true"]) {
+.kui-markdown-content :where(pre, .math-block, [jax][display="true"]) {
   max-inline-size: 100%;
   overflow-x: auto;
 }
@@ -133,7 +133,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  column-gap: var(--kui-space-xs);
+  gap: 0 var(--kui-space-xs);
   margin-block: var(--kui-space-xs);
 }
 
@@ -238,7 +238,7 @@
 
 .kui-compare-content {
   grid-template-columns: minmax(0, 1fr);
-  column-gap: var(--kui-space-lg);
+  gap: var(--kui-gap) var(--kui-space-lg);
 }
 
 @container kui-grid (min-width: 34rem) {
