@@ -9,6 +9,8 @@ const pluginDir = join(root, "dist", "obsidian");
 export const previewDir = join(root, "dist", "preview");
 
 const JavaScriptBudget = 512 * 1024;
+const yamlLicense = await readFile(join(root, "node_modules", "yaml", "LICENSE"), "utf8");
+const licenseBanner = "/*! Knowledge UI: 0BSD\nBundled yaml: ISC\n\n" + yamlLicense.trim() + "\n*/";
 
 function bundleOptions({ outdir, entryPoints, format, external = [], stylesheet, assetSources, readAssets }) {
   const stylesheetPath = join(root, stylesheet);
@@ -23,6 +25,7 @@ function bundleOptions({ outdir, entryPoints, format, external = [], stylesheet,
     target: "es2022",
     external,
     minify: true,
+    banner: { js: licenseBanner },
     write: false,
     metafile: true,
     plugins: [{

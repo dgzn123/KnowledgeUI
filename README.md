@@ -28,6 +28,14 @@ npm run preview
 
 ## 安装到 Obsidian
 
+### 从发行版安装
+
+从 [GitHub Releases](https://github.com/dgzn123/KnowledgeUI/releases/latest) 下载同一版本的 `main.js`、`manifest.json` 和 `styles.css`。关闭目标 Vault，把三个文件放入 `<Vault>/.obsidian/plugins/knowledge-ui/`，再重新打开，在 **设置 → 第三方插件** 中启用 **Knowledge UI**。使用自定义配置目录的 Vault，把 `.obsidian` 换成实际目录名。
+
+Android 可以用显示隐藏文件的文件管理器访问 `.obsidian`。iPhone 和 iPad 可以用有权访问 Vault 且能显示隐藏目录的文件工具。启用后用阅读视图打开包含 `kui` 的笔记。 [Obsidian 移动端配置目录说明](https://obsidian.md/help/configuration-folder)
+
+### 从源码安装
+
 先用 Obsidian 打开目标 Vault，使其已有配置目录。等当前同步结束并关闭目标 Vault，再把命令中的路径替换为 Vault 根目录。对同一个 Vault 使用同一份源码检出，以便沿用本地回滚历史。
 
 ```sh
@@ -117,3 +125,7 @@ tests/               自动化测试与测试数据
 ## 验证范围
 
 0.1.0 已在 Linux Chromium 和 Obsidian 1.15.1 通过预览、阅读视图、实时预览与临时 Vault 安装回滚实测。Windows、macOS、iOS/iPadOS 和 Android 的 Obsidian 运行待实机验证。二阶系统的阶跃图使用 0–12 s 固定窗口，部分参数下的首峰读数可能落在图窗外。
+
+## 许可证
+
+项目源码采用 [BSD Zero Clause（0BSD）](LICENSE)。插件在 Obsidian 内本地解析和渲染笔记，可离线使用。随插件打包的 `yaml` 采用 ISC 许可证，其版权和许可原文随 JavaScript 制品分发。 [yaml 项目](https://github.com/eemeli/yaml)
